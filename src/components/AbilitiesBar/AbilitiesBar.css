@@ -1,0 +1,59 @@
+.abilities-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  z-index: 1000;
+  padding: 16px 32px;
+  height: 10vh;
+  width: 100%;
+  background-color: #202020;
+  position: relative;
+  overflow: visible;
+  box-sizing: border-box;
+}
+
+.abilities-section {
+  display: flex;
+  gap: 10px;
+  height: 100%;
+}
+
+.tooltip-section {
+  width: 250px;
+  height: 100%;
+  border-left: 2px solid #f68007;
+  padding: 8px 16px;
+  color: #202020;
+  background-color: #f6f6f6;
+  font-family: 'Press Start 2P', monospace;
+  font-size: 12px;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+  display: flex;
+  align-items: center;
+  position: absolute;
+  right: 32px; /* Match the parent's padding */
+  top: 0;
+}
+
+.tooltip-section.visible {
+  opacity: 1;
+}
+
+/* Add styles for tooltip content layout */
+.tooltip-content {
+  width: 100%;
+}
+
+.tooltip-header {
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+
+.tooltip-stats {
+  display: flex;
+  justify-content: space-between;
+}
+
+/* todo: refactor this mess, the tooltip is too big. and add the pixel corners */

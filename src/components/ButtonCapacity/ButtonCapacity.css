@@ -1,54 +1,70 @@
-.btn {
-  padding: 0.5em 1rem !important;
-  margin: 0.3rem;
-  border-radius: 8px;
-  font-size: 0.9rem;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  transition: all 0.3s ease;
+.abilities-container {
   position: relative;
-  overflow: hidden;
-  display: inline-flex;
-  align-items: center;
+  display: flex;
+  flex-direction: column;
   gap: 8px;
-  border: none;
 }
 
-.btn:disabled {
-  opacity: 0.6;
-  cursor: not-allowed;
+.btn {
+  width: 60px;
+  height: 60px;
+  padding: 12px !important;
+  background: #9b9f9e;
+  border: none;
+  border-radius: 8px;
+  color: #6f5f4b;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: all 0.2s ease;
+}
+
+.btn:hover {
+  background: #f6f6f6;
+  color: #f68007;
 }
 
 .btn i {
-  font-size: 1rem;
+  font-size: 24px;
 }
 
-.btn-danger {
-  background: linear-gradient(45deg, #dc3545, #ff5555);
-  box-shadow: 0 4px 15px rgba(220, 53, 69, 0.3);
-}
-
-.btn-primary {
-  background: linear-gradient(45deg, #007bff, #00a6ff);
-  box-shadow: 0 4px 15px rgba(0, 123, 255, 0.3);
-}
-
-.btn-success {
-  background: linear-gradient(45deg, #28a745, #34ce57);
-  box-shadow: 0 4px 15px rgba(40, 167, 69, 0.3);
-}
-
-.btn:hover:not(:disabled) {
-  transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
-}
-
-.btn:active:not(:disabled) {
-  transform: translateY(1px);
-}
-
-.fa-bomb {
+.ability-tooltip {
+  position: absolute;
+  right: calc(100% + 16px);
+  top: 50%;
+  transform: translateY(-50%);
+  background: #000000cc;
+  border: 2px solid #f68007;
+  border-radius: 4px;
+  padding: 12px;
+  width: 200px;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.2s ease;
   color: white;
-  text-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+  font-family: 'Press Start 2P', monospace;
+  font-size: 12px;
+}
+
+.btn:hover + .ability-tooltip {
+  opacity: 1;
+  visibility: visible;
+}
+
+.tooltip-content {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.tooltip-header {
+  color: #f68007;
+  margin-bottom: 4px;
+}
+
+.tooltip-stats {
+  display: flex;
+  justify-content: space-between;
+  font-size: 10px;
 }

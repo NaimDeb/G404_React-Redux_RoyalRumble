@@ -1,10 +1,15 @@
 import "./ButtonCapacity.css";
-import { useDispatch } from "react-redux";
-import { hitMonster, hitBack } from "../../features/fight/fightSlice";
+import { useDispatch, useSelector } from "react-redux";
+import { hitMonster, hitBack, nextTurn } from "../../features/fight/fightSlice";
 
-function ButtonCapacity({ player, capacity }) {
+function ButtonCapacity({ player, capacity, onHover }) {
 
   const dispatch = useDispatch();
+  const currentTurn = useSelector((state) => state.fight.currentTurn);
+  const isMonsterTurn = useSelector((state) => state.fight.isMonsterTurn);
+
+  const isPlayerTurn = player.id === currentTurn && !isMonsterTurn;
+
 
   const activateCapacity = () => {
     dispatch(hitMonster({
@@ -22,23 +27,32 @@ function ButtonCapacity({ player, capacity }) {
       dispatch(hitBack({
         playerId:player.id
       }));
-    }, 500);
+    }, 200);
+
+
+    dispatch(nextTurn());
     
   };
 
 
+  if (!isPlayerTurn) {
+    return null;
+  }
+
 
   return (
-    <button
-      type="button"
-      onClick={activateCapacity}
-      className={`btn btn-${capacity.color} material-tooltip-main`}
-      disabled={player.mana < capacity.manaCost}
-    >
-      {capacity.name}
-      <i className={`fas ${capacity.icon}`}></i> {capacity.damage}
-      <i className="fas fa-fire-alt"></i> - {capacity.manaCost}
-    </button>
+    <div className="abilities-container">
+      <button
+        type="button"
+        onClick={activateCapacity}
+        className={`btn btn-${capacity.color}`}
+        disabled={player.mana < capacity.manaCost}
+        onMouseEnter={() => onHover(capacity)}
+        onMouseLeave={() => onHover(null)}
+      >
+        <i className={`fas ${capacity.icon}`}></i>
+      </button>
+    </div>
   );
 }
 

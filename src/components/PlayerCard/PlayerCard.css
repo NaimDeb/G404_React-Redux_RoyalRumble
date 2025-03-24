@@ -18,6 +18,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  transition: transform 0.15s ease-out;
 }
 
 .card-border {
@@ -105,8 +106,41 @@
     font-family: 'Press Start 2P', cursive;
 }
 
+/* Little lucas */
+
+.turn-indicator {
+    position: absolute;
+    top: -15%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 80%;
+    height: 80%;
+    object-fit: contain;
+    animation: popup 0.25s steps(16);
+  }
+
 
 /* Animation classes */
+
+.card.active-turn {
+    transform: translateY(-10px);
+  }
+
+@keyframes popup {
+    0%{
+        top:0
+
+    }
+    80% {
+        top: -20%
+
+    }
+    100% {
+        top: -15%
+    }
+}
+
+
 .scroll-up {
     animation: scrollUp 2s forwards;
 }

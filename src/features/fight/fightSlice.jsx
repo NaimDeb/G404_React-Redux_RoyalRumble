@@ -176,6 +176,8 @@ const initialState = {
     ],
   },
   lastAttackMissed: false,
+  currentTurn: 1,
+  isMonsterTurn: false,
 };
 
 export const fightSlice = createSlice({
@@ -235,10 +237,21 @@ export const fightSlice = createSlice({
       }
 
 
-    }
-  }
+    },
+
+    nextTurn: (state) => {
+      if (state.currentTurn === 4) {
+        state.currentTurn = 1;
+        state.isMonsterTurn = true;
+        // TODO: Automatically trigger monster's turn here
+      } else {
+        state.currentTurn++;
+        state.isMonsterTurn = false;
+      }
+  },
+  },
 });
 
-export const { hitMonster, hitBack } = fightSlice.actions;
+export const { hitMonster, hitBack, nextTurn } = fightSlice.actions;
 
 export default fightSlice.reducer;

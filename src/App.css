@@ -16,7 +16,7 @@
 .card-content {
   position: relative;
   width: calc(100% - 10px);
-  height: calc(100% - 10px);
+  height: 80%;
   display: flex;
   padding: 1.5em 2em;
   justify-content: space-between;
