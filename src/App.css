@@ -1,7 +1,21 @@
 @import url("https://fonts.googleapis.com/css?family=Hind:400,700");
 
+/* Add/modify these rules at the top of App.css */
 .App {
   text-align: center;
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  overflow-x: hidden;
+}
+.container-fluid {
+  padding: 0;
+  margin: auto;
+  width: 100%;
+  flex: 1;
+  overflow-x: hidden;
 }
 
 .fa-fire-alt {
@@ -28,6 +42,16 @@
   position: absolute;
   font-size: 30;
 }
+
+.flex {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 1rem;
+  padding: 1rem;
+}
+
 
 /*
   -----------------------------

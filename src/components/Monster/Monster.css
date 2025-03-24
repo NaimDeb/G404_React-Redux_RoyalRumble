@@ -1,3 +1,79 @@
 .card-monstre {
-  margin-top: 10px;
+  margin: 0 auto;
+  border-radius: 20px;
+  max-width: 100%;
+  padding: 1rem;
+}
+
+#monsterCard {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.img-fluid {
+  width: 10em;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+  padding: 30px 30px;
+  transition: transform 0.2s ease;
+}
+
+#monsterCard img:hover {
+  transform: scale(1.02);
+}
+
+#monsterCard p {
+  font-size: 2rem;
+  font-weight: 900;
+  color: #ff0000;
+  text-transform: uppercase;
+  margin: 1rem 0;
+  font-family: 'Arial Black', sans-serif;
+  letter-spacing: 8px;
+  position: relative;
+  text-align: center;
+  text-shadow:
+    0 0 15px #8b0000,
+    0 0 30px #ff0000,
+    0 0 45px #ff4500,
+    0 0 60px #ff4500,
+    0 0 75px #ff6347,
+    0 0 90px #ff7f50;
+  background-color: #1a1a1a;
+  padding: 1.5rem;
+  border-radius: 15px;
+  width: 100vw;
+}
+
+#monsterCard p::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100px;
+  height: 4px;
+  background-color: #ff3333;
+}
+
+.badge-danger {
+  font-size: 1.2rem;
+  padding: 0.5rem 1rem;
+  margin: 1rem 0;
+  background-color: #ff3333;
+}
+
+#comboOnMonster {
+  width: 100%;
+  min-height: 80px;
+  margin-top: 1rem;
+}
+
+.progress {
+  height: 2rem !important;
+  margin-top: 2rem;
+  border-radius: 10px;
+  background-color: #f0f0f0 !important;
 }

@@ -19,6 +19,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  color: #fff; /* Ensure text is visible */
 }
 
 /* Health Bar (Red) */
