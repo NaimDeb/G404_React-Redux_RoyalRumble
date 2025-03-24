@@ -22,7 +22,7 @@ function ButtonCapacity({ player, capacity }) {
       dispatch(hitBack({
         playerId:player.id
       }));
-    }, 200);
+    }, 500);
     
   };
 

@@ -186,16 +186,23 @@ export const fightSlice = createSlice({
       const { playerId, damage, manaCost } = action.payload;
       const player = state.players.find((p) => p.id === playerId);
 
+      const prevPv = state.previousValues.players[playerId - 1].pv;
+      const prevMana = state.previousValues.players[playerId - 1].mana;
+
       if (player && player.mana >= manaCost) {
-        // Store BOTH current values before ANY updates
-        state.previousValues.players[playerId - 1] = {
-          pv: player.pv,      // Store HP even though it won't change
-          mana: player.mana   // Store current mana before reduction
-        };
 
         // Then do updates
         player.mana -= manaCost;
         state.monster.pv = Math.max(0, state.monster.pv - damage);
+
+        // Change values only if they changed to prevent unnecessary re-renders
+        if (prevPv !== player.pv) {
+          state.previousValues.players[playerId - 1].pv = player.pv;
+        }
+        if (prevMana !== player.mana) {
+          state.previousValues.players[playerId - 1].mana = player.mana;
+        }
+
       }
     },
 
@@ -203,11 +210,10 @@ export const fightSlice = createSlice({
       const { playerId } = action.payload;
       const player = state.players[playerId - 1];
 
-      // Store BOTH current values before ANY updates
-      state.previousValues.players[playerId - 1] = {
-        pv: player.pv,      // Store current HP before damage
-        mana: player.mana   // Store mana even though it won't change
-      };
+
+      const prevPv = state.previousValues.players[playerId - 1].pv;
+      const prevMana = state.previousValues.players[playerId - 1].mana;
+
 
       const monsterMiss = Math.random() < 0.2;
       if (!monsterMiss) {
@@ -219,6 +225,16 @@ export const fightSlice = createSlice({
         console.log("Miss!");
         
       }
+
+      // Change values only if they changed to prevent unnecessary re-renders
+      if (prevPv !== player.pv) {
+        state.previousValues.players[playerId - 1].pv = player.pv;
+      }
+      if (prevMana !== player.mana) {
+        state.previousValues.players[playerId - 1].mana = player.mana;
+      }
+
+
     }
   }
 });
