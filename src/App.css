@@ -11,13 +11,17 @@
   overflow-x: hidden;
 
 }
-.container-fluid {
-  position:absolute;
-  bottom: 0;
-  padding: 0;
-  margin: auto;
-  width: 100%;
-  overflow-x: hidden;
+
+
+.card-content {
+  position: relative;
+  width: calc(100% - 10px);
+  height: calc(100% - 10px);
+  display: flex;
+  padding: 1.5em 2em;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: column;
 }
 
 .fa-fire-alt {

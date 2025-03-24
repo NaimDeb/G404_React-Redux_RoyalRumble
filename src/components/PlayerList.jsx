@@ -6,11 +6,11 @@ function PlayerList() {
   const players = useSelector((state) => state.fight.players);
 
   return (
-    <div className="flex">
+    <section className="card-section">
       {Object.values(players).map((player) => (
         <PlayerCard key={player.id} player={player} />
       ))}
-    </div>
+    </section>
   );
 }
 
