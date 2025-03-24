@@ -4,16 +4,26 @@ import PlayerList from './components/PlayerList'
 import BattleLog from './components/BattleLog/BattleLog'
 
 function App() {
-
   return (
     <div className="App">
-        <Monster />
-        <br></br>
-        < BattleLog />
-        <section className="container-fluid">
+      <div className="background-effects"></div>
+      
+      <h1 className="site-title">Royal Rumble</h1>
+      
+      <div className="game-container">
+        <div className="monster-section fade-in">
+          <Monster />
+        </div>
+        
+        <div className="battle-log-section fade-in">
+          <BattleLog />
+        </div>
+        
+        <div className="cards-container">
           <PlayerList />
-        </section >
+        </div>
       </div>
+    </div>
   )
 }
 
