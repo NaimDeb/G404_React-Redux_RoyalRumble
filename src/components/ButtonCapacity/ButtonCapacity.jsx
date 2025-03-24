@@ -1,6 +1,6 @@
 import "./ButtonCapacity.css";
 import { useDispatch } from "react-redux";
-import { hitMonster } from "../../features/fight/fightSlice";
+import { hitMonster, hitBack } from "../../features/fight/fightSlice";
 
 function ButtonCapacity({ player, capacity }) {
 
@@ -13,7 +13,17 @@ function ButtonCapacity({ player, capacity }) {
       manaCost: capacity.manaCost
 
     }));
+    
     console.log("Attaque " + capacity.name + " lancée par " + player.name);
+
+    // Wait 0.5s
+
+    setTimeout(() => {
+      dispatch(hitBack({
+        playerId:player.id
+      }));
+    }, 200);
+    
   };
 
 

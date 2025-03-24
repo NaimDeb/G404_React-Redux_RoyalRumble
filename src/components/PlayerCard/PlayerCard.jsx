@@ -1,10 +1,8 @@
-import ButtonCapacity from "./ButtonCapacity/ButtonCapacity";
-import ProgressBar from "./ProgressBar/ProgressBar";
+import ButtonCapacity from "../ButtonCapacity/ButtonCapacity";
+import ProgressBar from "../ProgressBar/ProgressBar";
+import "./PlayerCard.css";
 
 function PlayerCard({ player }) {
-
-
-
   return (
     <div
       key={player.id}
@@ -31,13 +29,8 @@ function PlayerCard({ player }) {
         <div className="row ">
           <div>
             {player.capacities.map((capacity, index) => (
-              <ButtonCapacity 
-              key={index} 
-              player={player} 
-              capacity={capacity} 
-              />
+              <ButtonCapacity key={index} player={player} capacity={capacity} />
             ))}
-
           </div>
         </div>
       </div>

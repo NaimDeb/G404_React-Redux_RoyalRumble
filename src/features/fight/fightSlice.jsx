@@ -62,6 +62,7 @@ const initialState = {
     monster: {
         name: "Dragon", pv:200, pvMax: 200, strength:15
     },
+    lastAttackMissed : false,
 };
 
 export const fightSlice = createSlice({
@@ -88,9 +89,22 @@ export const fightSlice = createSlice({
 
 
         hitBack: (state, action) => {
-            const damage = action.payload;
+            const {playerId} = action.payload;
+            
 
-            state.players.pv = Math.max(0,state.players.pv - damage);
+            const monsterMiss = Math.random() < 0.2;
+
+            if (monsterMiss) {
+                console.log("Le monstre a raté son attaque");
+                state.lastAttackMissed = true;
+            } else {
+
+                const damage = Math.floor(state.monster.strength * (Math.random() * (1.5 - 0.7) + 0.7));
+                state.players[playerId-1].pv = Math.max(0, state.players[playerId-1].pv - damage);
+                state.lastAttackMissed = false;
+            }
+            
+
         
         }
 
@@ -98,7 +112,7 @@ export const fightSlice = createSlice({
 });
 
 
-export const { hitMonster } = fightSlice.actions
+export const { hitMonster, hitBack } = fightSlice.actions
 
 
 export default fightSlice.reducer
