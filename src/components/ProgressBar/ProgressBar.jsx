@@ -6,6 +6,9 @@ function ProgressBar({ pv, pvMax, faType, barName, bgType }) {
   
   return (
     <div className="progress md-progress">
+            <i className={`fas ${faType} icon-text`}>
+        {pv} {barName}
+      </i>
       <div 
         className={`progress-bar ${bgType} ${isLow ? "low" : ""}`}
         style={{ width: `${percentage}%` }}
@@ -14,10 +17,8 @@ function ProgressBar({ pv, pvMax, faType, barName, bgType }) {
         aria-valuemax={pvMax}
         role="progressbar"
       >
-        <i className={`fas ${faType} icon-text`}>
-          {pv} {barName}
-        </i>
       </div>
+
     </div>
   );
 }
