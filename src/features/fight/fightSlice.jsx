@@ -1,6 +1,18 @@
 import { createSlice } from "@reduxjs/toolkit";
 
+
 const initialState = {
+
+
+  basicAttack: {
+    name: "Bash",
+    damage: 3,
+    manaCost: 0,
+    icon: "fa-hand-rock",
+    color: "secondary",
+  },
+
+
   players: [
     {
       name: "John",
@@ -184,6 +196,16 @@ export const fightSlice = createSlice({
   name: "fight",
   initialState,
   reducers: {
+
+    basicAttack: (state, action) => {
+      const { playerId } = action.payload;
+      const player = state.players.find((p) => p.id === playerId);
+
+      if (player) {
+        state.monster.pv = Math.max(0, state.monster.pv - basicAttack.damage);
+      }
+    },
+
     hitMonster: (state, action) => {
       const { playerId, damage, manaCost } = action.payload;
       const player = state.players.find((p) => p.id === playerId);
@@ -252,6 +274,6 @@ export const fightSlice = createSlice({
   },
 });
 
-export const { hitMonster, hitBack, nextTurn } = fightSlice.actions;
+export const { hitMonster, hitBack, nextTurn, basicAttack } = fightSlice.actions;
 
 export default fightSlice.reducer;

@@ -10,6 +10,8 @@ function AbilitiesBar({ currentPlayer }) {
 
   const isPlayerTurn = currentPlayer.id === currentTurn && !isMonsterTurn;
 
+  const basicAttack = useSelector((state) => state.fight.basicAttack);
+
   if (!isPlayerTurn) {
     return null;
   }
@@ -17,6 +19,12 @@ function AbilitiesBar({ currentPlayer }) {
   return (
     <div className="abilities-bar">
       <div className="abilities-section">
+        <ButtonCapacity 
+          key="basicAttack"
+          player={currentPlayer} 
+          capacity={basicAttack}
+          onHover={setActiveTooltip}
+        />
         {currentPlayer.capacities.map((capacity, index) => (
           <ButtonCapacity 
             key={index} 
