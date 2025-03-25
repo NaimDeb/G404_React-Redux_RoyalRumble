@@ -16,10 +16,10 @@ function Monster() {
             <div className="text-center">
               <div className="row">
                 <div className="col-sm-6 offset-sm-3">
-                  <span
+                  {/* <span
                     className="badge badge-danger"
                     id="degatSpanMonster"
-                  ></span>
+                  ></span> */}
                   <p>{monster.name}</p>
                   <img
                     className="img-fluid"

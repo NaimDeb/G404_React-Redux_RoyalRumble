@@ -12,27 +12,28 @@ function AbilitiesBar({ currentPlayer }) {
 
   const basicAttack = useSelector((state) => state.fight.basicAttack);
 
-  if (!isPlayerTurn) {
-    return null;
-  }
-
+  
   return (
     <div className="abilities-bar">
       <div className="abilities-section">
-        <ButtonCapacity 
-          key="basicAttack"
-          player={currentPlayer} 
-          capacity={basicAttack}
-          onHover={setActiveTooltip}
-        />
-        {currentPlayer.capacities.map((capacity, index) => (
-          <ButtonCapacity 
-            key={index} 
-            player={currentPlayer} 
-            capacity={capacity}
-            onHover={setActiveTooltip}
-          />
-        ))}
+        {isPlayerTurn && (
+          <>
+            <ButtonCapacity 
+              key="basicAttack"
+              player={currentPlayer} 
+              capacity={basicAttack}
+              onHover={setActiveTooltip}
+            />
+            {currentPlayer.capacities.map((capacity, index) => (
+              <ButtonCapacity 
+                key={index} 
+                player={currentPlayer} 
+                capacity={capacity}
+                onHover={setActiveTooltip}
+              />
+            ))}
+          </>
+        )}
       </div>
       <div className={`tooltip-section tooltip-pixel-corners ${activeTooltip ? 'visible' : ''}`}>
         {activeTooltip && (

@@ -3,22 +3,35 @@ import Monster from './components/Monster/Monster'
 import PlayerList from './components/PlayerList'
 import BattleLog from './components/BattleLog/BattleLog'
 import AbilitiesBar from './components/AbilitiesBar/AbilitiesBar';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import { useEffect } from 'react';
+import { monsterTurn } from './features/fight/fightSlice';
+
 
 
 function App() {
 
+  const dispatch = useDispatch();
+  const isMonsterTurn = useSelector(state => state.fight.isMonsterTurn);
   const currentPlayer = useSelector(state => 
     state.fight.players[state.fight.currentTurn - 1]
   );
+
+  useEffect(() => {
+    if (isMonsterTurn) {
+      setTimeout(() => {
+        dispatch(monsterTurn());
+      }, 1000);
+    }
+  }, [isMonsterTurn, dispatch]);
 
   return (
     <>
     <div className="App">
         <AbilitiesBar currentPlayer={currentPlayer} />
+        <BattleLog/>
         <Monster />
         <br></br>
-        < BattleLog />
         <section className="container-fluid">
           <PlayerList />
         </section >

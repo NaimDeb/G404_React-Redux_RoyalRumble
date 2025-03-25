@@ -27,7 +27,7 @@ function ButtonCapacity({ player, capacity, onHover }) {
       dispatch(hitBack({
         playerId:player.id
       }));
-    }, 200);
+    }, 500);
 
 
     dispatch(nextTurn());
