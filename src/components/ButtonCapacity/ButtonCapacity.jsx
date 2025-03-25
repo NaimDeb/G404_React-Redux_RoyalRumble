@@ -45,7 +45,7 @@ function ButtonCapacity({ player, capacity, onHover }) {
       <button
         type="button"
         onClick={activateCapacity}
-        className={`btn btn-${capacity.color}`}
+        className={`btn btn-${capacity.color} btn-pixel-corners`}
         disabled={player.mana < capacity.manaCost}
         onMouseEnter={() => onHover(capacity)}
         onMouseLeave={() => onHover(null)}

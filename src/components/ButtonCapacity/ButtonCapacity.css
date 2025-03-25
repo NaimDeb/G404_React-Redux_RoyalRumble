@@ -58,13 +58,108 @@
   gap: 8px;
 }
 
-.tooltip-header {
-  color: #f68007;
-  margin-bottom: 4px;
-}
 
 .tooltip-stats {
   display: flex;
   justify-content: space-between;
   font-size: 10px;
+}
+
+
+.btn-pixel-corners,
+.btn-pixel-corners--wrapper {
+  clip-path: polygon(0px calc(100% - 6px),
+    3px calc(100% - 6px),
+    3px calc(100% - 3px),
+    6px calc(100% - 3px),
+    6px 100%,
+    calc(100% - 6px) 100%,
+    calc(100% - 6px) calc(100% - 3px),
+    calc(100% - 3px) calc(100% - 3px),
+    calc(100% - 3px) calc(100% - 6px),
+    100% calc(100% - 6px),
+    100% 6px,
+    calc(100% - 3px) 6px,
+    calc(100% - 3px) 3px,
+    calc(100% - 6px) 3px,
+    calc(100% - 6px) 0px,
+    6px 0px,
+    6px 3px,
+    3px 3px,
+    3px 6px,
+    0px 6px);
+  position: relative;
+}
+.btn-pixel-corners {
+  border: 3px solid transparent;
+}
+.btn-pixel-corners--wrapper {
+  width: fit-content;
+  height: fit-content;
+}
+.btn-pixel-corners--wrapper .btn-pixel-corners {
+  display: block;
+  clip-path: polygon(3px 6px,
+    6px 6px,
+    6px 3px,
+    calc(100% - 6px) 3px,
+    calc(100% - 6px) 6px,
+    calc(100% - 3px) 6px,
+    calc(100% - 3px) calc(100% - 6px),
+    calc(100% - 6px) calc(100% - 6px),
+    calc(100% - 6px) calc(100% - 3px),
+    6px calc(100% - 3px),
+    6px calc(100% - 6px),
+    3px calc(100% - 6px));
+}
+.btn-pixel-corners::after,
+.btn-pixel-corners--wrapper::after {
+  content: "";
+  position: absolute;
+  clip-path: polygon(0px calc(100% - 6px),
+    3px calc(100% - 6px),
+    3px calc(100% - 3px),
+    6px calc(100% - 3px),
+    6px 100%,
+    calc(100% - 6px) 100%,
+    calc(100% - 6px) calc(100% - 3px),
+    calc(100% - 3px) calc(100% - 3px),
+    calc(100% - 3px) calc(100% - 6px),
+    100% calc(100% - 6px),
+    100% 6px,
+    calc(100% - 3px) 6px,
+    calc(100% - 3px) 3px,
+    calc(100% - 6px) 3px,
+    calc(100% - 6px) 0px,
+    6px 0px,
+    6px 3px,
+    3px 3px,
+    3px 6px,
+    0px 6px,
+    0px 50%,
+    3px 50%,
+    3px 6px,
+    6px 6px,
+    6px 3px,
+    calc(100% - 6px) 3px,
+    calc(100% - 6px) 6px,
+    calc(100% - 3px) 6px,
+    calc(100% - 3px) calc(100% - 6px),
+    calc(100% - 6px) calc(100% - 6px),
+    calc(100% - 6px) calc(100% - 3px),
+    6px calc(100% - 3px),
+    6px calc(100% - 6px),
+    3px calc(100% - 6px),
+    3px 50%,
+    0px 50%);
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: #332629;
+  display: block;
+  pointer-events: none;
+}
+.btn-pixel-corners::after {
+  margin: -3px;
 }

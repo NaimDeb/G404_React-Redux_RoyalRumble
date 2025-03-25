@@ -7,7 +7,7 @@
   padding: 16px 32px;
   height: 10vh;
   width: 100%;
-  background-color: #202020;
+  background-color: #0a0a0a;
   position: relative;
   overflow: visible;
   box-sizing: border-box;
@@ -20,11 +20,10 @@
 }
 
 .tooltip-section {
-  width: 250px;
-  height: 100%;
-  border-left: 2px solid #f68007;
+  width: 25vw;
+  height: 90%;
   padding: 8px 16px;
-  color: #202020;
+  color: #0a0a0a;
   background-color: #f6f6f6;
   font-family: 'Press Start 2P', monospace;
   font-size: 12px;
@@ -34,7 +33,10 @@
   align-items: center;
   position: absolute;
   right: 32px; /* Match the parent's padding */
-  top: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  box-sizing: border-box;
+  pointer-events: none;
 }
 
 .tooltip-section.visible {
@@ -44,16 +46,46 @@
 /* Add styles for tooltip content layout */
 .tooltip-content {
   width: 100%;
+  display: flex;
+  flex-direction: column;
+
 }
 
 .tooltip-header {
   font-weight: 700;
+  font-size: 15pt;
   margin-bottom: 8px;
+  text-wrap: nowrap;
 }
 
 .tooltip-stats {
   display: flex;
-  justify-content: space-between;
+  gap: 5px;
 }
 
-/* todo: refactor this mess, the tooltip is too big. and add the pixel corners */
+
+
+.tooltip-pixel-corners {
+  clip-path: polygon(
+    0px calc(100% - 6px),
+    3px calc(100% - 6px),
+    3px calc(100% - 3px),
+    6px calc(100% - 3px),
+    6px 100%,
+    calc(100% - 6px) 100%,
+    calc(100% - 6px) calc(100% - 3px),
+    calc(100% - 3px) calc(100% - 3px),
+    calc(100% - 3px) calc(100% - 6px),
+    100% calc(100% - 6px),
+    100% 6px,
+    calc(100% - 3px) 6px,
+    calc(100% - 3px) 3px,
+    calc(100% - 6px) 3px,
+    calc(100% - 6px) 0px,
+    6px 0px,
+    6px 3px,
+    3px 3px,
+    3px 6px,
+    0px 6px
+  );
+}

@@ -26,7 +26,7 @@ function AbilitiesBar({ currentPlayer }) {
           />
         ))}
       </div>
-      <div className={`tooltip-section ${activeTooltip ? 'visible' : ''}`}>
+      <div className={`tooltip-section tooltip-pixel-corners ${activeTooltip ? 'visible' : ''}`}>
         {activeTooltip && (
           <div className="tooltip-content">
             <div className="tooltip-header">{activeTooltip.name}</div>
