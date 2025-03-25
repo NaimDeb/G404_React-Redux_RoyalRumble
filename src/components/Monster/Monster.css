@@ -5,6 +5,8 @@
   background-position: center;
   background-color: #000;
 
+  height: 100vh;
+
 }
 
 
@@ -15,6 +17,7 @@
   max-width: 100%;
   padding: 1rem;
 }
+
 
 #monsterCard {
   display: flex;
