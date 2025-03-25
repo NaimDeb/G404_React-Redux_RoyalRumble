@@ -1,6 +1,7 @@
 import './Monster.css';
 import ProgressBar from "../ProgressBar/ProgressBar";
 import { useSelector } from 'react-redux';
+import MonsterImg from '../../assets/mechadrago.webp';
 
 function Monster() {
 
@@ -23,7 +24,7 @@ function Monster() {
                   <p>{monster.name}</p>
                   <img
                     className="img-fluid"
-                    src="http://res.publicdomainfiles.com/pdf_view/67/13925387417373.png"
+                    src={MonsterImg}
                     alt="monster"
                   />
                   </div>

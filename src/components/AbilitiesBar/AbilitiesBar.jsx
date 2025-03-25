@@ -8,10 +8,13 @@ function AbilitiesBar({ currentPlayer }) {
   const currentTurn = useSelector((state) => state.fight.currentTurn);
   const isMonsterTurn = useSelector((state) => state.fight.isMonsterTurn);
 
-  const isPlayerTurn = currentPlayer.id === currentTurn && !isMonsterTurn;
-
   const basicAttack = useSelector((state) => state.fight.basicAttack);
 
+  if (!currentPlayer) {
+    return <div className="abilities-bar"></div>;
+  }
+
+  const isPlayerTurn = currentPlayer?.id === currentTurn && !isMonsterTurn;
   
   return (
     <div className="abilities-bar">

@@ -1,7 +1,18 @@
 import { useSelector } from "react-redux";
 import ButtonCapacity from "../ButtonCapacity/ButtonCapacity";
 import "./PlayerCard.css";
+
 import lucas from "../../assets/lucas.webp";
+import kumatora from "../../assets/kumatora.png";
+import duster from "../../assets/Duster.png";
+import episteque from "../../assets/episteque.webp";
+
+const characterImages = {
+  "Lucas": lucas,
+  "Kumatora": kumatora,
+  "Duster": duster,
+  "Nadir": episteque
+};
 
 function PlayerCard({ player }) {
   const previousValues = useSelector(
@@ -96,7 +107,7 @@ function PlayerCard({ player }) {
 
     <div className={`card pixel-corners ${isPlayerTurn ? "active-turn" : ""}`}>
       {isPlayerTurn && (
-        <img src={lucas} alt="Turn indicator" className="turn-indicator" />
+        <img src={characterImages[player.name]}  alt="Turn indicator" className="turn-indicator" />
       )}
       <div className="card-border" aria-hidden="true"></div>
       <div className="card-content">
